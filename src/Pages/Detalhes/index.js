@@ -10,7 +10,9 @@ export default function Detalhes() {
 
     return(
         <View style={styles.container}>
+
             <View style={styles.containerLogo}>
+
                 <Animatable.Image
                     animation="flipInY"
                     style={styles.containerImg}
@@ -20,13 +22,13 @@ export default function Detalhes() {
                 />
                 
             </View>
+
             <View style={styles.peca}>
 
-                <Text style={styles.title}>Componentes</Text>
-                    
-                <View style={styles.compOne}>
+                <Text style={styles.title}>Componentes</Text>      
+                <View style={styles.componentsFirst}>
 
-                    <View style={styles.One}>
+                    <View style={styles.First}>
                         <Text>component 1</Text>
                         <Text>component 2</Text>
                         <Text>component 3</Text>
@@ -35,9 +37,9 @@ export default function Detalhes() {
 
                 </View>
 
-                <View style={styles.compTwo}>
+                <View style={styles.componentsSecond}>
 
-                    <View style={styles.Two}>
+                    <View style={styles.Second}>
                         <Text>component 1</Text>
                         <Text>component 2</Text>
                         <Text>component 3</Text>
@@ -51,7 +53,14 @@ export default function Detalhes() {
             <View style={styles.proj}>
 
                 <Text style={styles.explicacao}>Projeto em ação</Text>
+                <View style={styles.textoExplicacao}>
+                        
+                        <Text>       Nosso projeto consiste em montar um sistema  central de alarmes contra incêndios, 
+                             tendo como  objetivo principal ser um sistema completo, possuindo  sensores de gás e
+                             de chamas e também presa pela  acessibilidade  com alarmes e luzes incluindo pessoas
+                              com algumas possíveis deficiências.</Text>
 
+                    </View>
             </View>
 
         </View>
@@ -76,7 +85,10 @@ const styles = StyleSheet.create({
         flex: 0.6,
     },
     proj:{
-        flex: 0.6
+        flex: 0.6,
+        backgroundColor: '#DEDEDE',
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25,
     },
     title:{
         textAlign:'center',
@@ -87,10 +99,23 @@ const styles = StyleSheet.create({
     },
     explicacao:{
         textAlign:'center',
-        fontSize: 24,
+        fontSize: 22,
         fontWeight:'bold',
         marginTop: '5%',
-        marginBottom: 20,
+        marginBottom: 40,
+    },
+    textoExplicacao:{
+        fontWeight:'bold',
+        display: 'flex',
+        flexDirection: 'colum',
+        alignItems: 'center',
+        textAlign:'center',
+        fontSize: 20,
+        flex:0.45,
+        justifyContent: 'center',
+        paddingVertical: '3%',
+        marginLeft: '5%',
+        marginRight: '5%',
     },
     text:{
         color:'#a1a1a1'
@@ -117,7 +142,7 @@ const styles = StyleSheet.create({
     comp:{
         display: 'flex',
     },
-    compOne:{
+    componentsFirst:{
         fontSize: 20,
         display: 'flex',
         flexDirection: 'colum',
@@ -126,14 +151,14 @@ const styles = StyleSheet.create({
         paddingVertical: '1%',
         marginTop: '11.5%',
     },
-    One:{
+    First:{
         alignItems: 'center',
         display:'flex',
         marginRight: '50%',
         fontSize: 20,
         fontWeight:'900'
     },
-    compTwo:{
+    componentsSecond:{
         display: 'flex',
         flexDirection: 'colum',
         flex:0.4,
@@ -141,7 +166,7 @@ const styles = StyleSheet.create({
         paddingVertical: '1%',
         marginBottom:'30%',
     },
-    Two:{
+    Second:{
         marginBottom: '5%',
         marginLeft:'50%',
         alignItems: 'center',
