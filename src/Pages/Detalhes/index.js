@@ -4,47 +4,55 @@ import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native';
 
 
+
 export default function Detalhes() {
     const navigation = useNavigation();
 
     return(
         <View style={styles.container}>
             <View style={styles.containerLogo}>
-                <Animatable.Image 
+                <Animatable.Image
                     animation="flipInY"
                     style={styles.containerImg}
                     source={require('../../Assets/gasFirst.png')}
                     resizeMode='contain'
                     onPress={ () => navigation.navigate('Inicio')}
                 />
+                
             </View>
             <View style={styles.peca}>
 
                 <Text style={styles.title}>Componentes</Text>
-                
+                    
                 <View style={styles.compOne}>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <Text>component 1</Text>
-                    <Text>component 2</Text>
-                    <Text>component 3</Text>
-                    <Text>component 4</Text>
+
+                    <View style={styles.One}>
+                        <Text>component 1</Text>
+                        <Text>component 2</Text>
+                        <Text>component 3</Text>
+                        <Text>component 4</Text>
+                    </View>
 
                 </View>
 
                 <View style={styles.compTwo}>
 
-                    <Text>component 1</Text>
-                    <Text>component 2</Text>
-                    <Text>component 3</Text>
-                    <Text>component 4</Text>
-                    
+                    <View style={styles.Two}>
+                        <Text>component 1</Text>
+                        <Text>component 2</Text>
+                        <Text>component 3</Text>
+                        <Text>component 4</Text>
+                    </View>
+
                 </View>
 
             </View>
 
-            <Text style={styles.explicacao}>Projeto em ação</Text>
+            <View style={styles.proj}>
+
+                <Text style={styles.explicacao}>Projeto em ação</Text>
+
+            </View>
 
         </View>
     );
@@ -56,19 +64,21 @@ const styles = StyleSheet.create({
         backgroundColor: '#39A0B0'
     },
     containerLogo:{
-        flex:1,
+        flex:0.94,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop:'3%'
+        marginTop:'6%'
     },
     containerImg:{
         flex:1, 
     },
     peca:{
-        flex: 0.44,
+        flex: 0.6,
+    },
+    proj:{
+        flex: 0.6
     },
     title:{
-        flex: 0.56,
         textAlign:'center',
         fontSize: 24,
         fontWeight:'bold',
@@ -76,11 +86,10 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     explicacao:{
-        flex: 0.56,
         textAlign:'center',
         fontSize: 24,
         fontWeight:'bold',
-        marginTop: 30,
+        marginTop: '5%',
         marginBottom: 20,
     },
     text:{
@@ -109,22 +118,36 @@ const styles = StyleSheet.create({
         display: 'flex',
     },
     compOne:{
-        fontSize: 16,
+        fontSize: 20,
         display: 'flex',
         flexDirection: 'colum',
         flex:0.4,
-        alignItems: 'flex-start',
         justifyContent: 'center',
-        paddingVertical: '1%'
+        paddingVertical: '1%',
+        marginTop: '11.5%',
+    },
+    One:{
+        alignItems: 'center',
+        display:'flex',
+        marginRight: '50%',
+        fontSize: 20,
+        fontWeight:'900'
     },
     compTwo:{
-        fontSize: 16,
         display: 'flex',
         flexDirection: 'colum',
         flex:0.4,
-        alignItems: 'flex-end',
         justifyContent: 'center',
-        paddingVertical: '1%'
+        paddingVertical: '1%',
+        marginBottom:'30%',
+    },
+    Two:{
+        marginBottom: '5%',
+        marginLeft:'50%',
+        alignItems: 'center',
+        display:'flex',
+        fontSize: 20,
+        fontWeight:'900',
     }
     
 })

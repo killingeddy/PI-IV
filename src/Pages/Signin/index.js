@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Pressable } from 'react-native';
 import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native';
 
@@ -28,13 +28,13 @@ export default function SignIn() {
                         style={styles.input}
                         />
 
-                <TouchableOpacity style={styles.buton} onPress={ () => navigation.navigate('Main')}>
+                <Pressable style={styles.buton} onPress={ () => navigation.navigate('Main')}>
                     <Text style={styles.buttonText}>Acessar</Text>
-                </TouchableOpacity>
+                </Pressable>
 
-                <TouchableOpacity style={styles.butonRegister} onPress={ () => navigation.navigate('SignUp')}>
+                <Pressable style={styles.butonRegister} onPress={ () => navigation.navigate('SignUp')}>
                     <Text style={styles.registerText}>Cadastre-se</Text>
-                </TouchableOpacity>
+                </Pressable>
 
             </Animatable.View>
         </View>

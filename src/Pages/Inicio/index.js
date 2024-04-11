@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Pressable } from 'react-native';
 import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native';
 
@@ -21,12 +21,12 @@ export default function Inicio() {
             <Animatable.View delay={750} animation="fadeInUp" style={styles.containerForm}>
                 <Text style={styles.title}>Olá, seja muito bem vindo ao nosso App.</Text>
                 <Text style={styles.text}>Monitore seu projeto IOT.</Text>
-                <TouchableOpacity 
+                <Pressable 
                         style={styles.button}
                         onPress={ () => navigation.navigate('SignIn')}
                 >
                     <Text style={styles.buttonText}> Entrar </Text>
-                </TouchableOpacity>
+                </Pressable>
             </Animatable.View>
         </View>
     );

@@ -3,7 +3,7 @@ import {createNativeStackNavigator } from '@react-navigation/native-stack'
 import Inicio from '../Pages/Inicio'
 import SignIn from '../Pages/Signin';
 import SignUp from '../Pages/Signup';
-import Main from '../Pages/Main';
+import Main from '../Pages/Main/index';
 import Dashboard from '../Pages/Dashboard';
 import Detalhes from '../Pages/Detalhes';
 

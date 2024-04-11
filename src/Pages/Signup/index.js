@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Pressable } from 'react-native';
 import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native';
 
@@ -49,9 +49,9 @@ export default function SignUp() {
                         style={styles.input}
                         />
 
-                <TouchableOpacity style={styles.buton} onPress={ () => navigation.navigate('SignIn')}>
+                <Pressable style={styles.buton} onPress={ () => navigation.navigate('SignIn')}>
                     <Text style={styles.buttonText}>Cadastrar-se</Text>
-                </TouchableOpacity>
+                </Pressable>
 
             </Animatable.View>
         </View>

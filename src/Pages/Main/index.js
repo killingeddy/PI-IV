@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native';
 
@@ -20,20 +20,20 @@ export default function Main() {
             </View>
             <Animatable.View delay={750} animation="fadeInUp" style={styles.containerForm}>
                 <Animatable.View delay={750} animation="fadeInUp" style={styles.containerButtonUp}>
-                    <TouchableOpacity 
+                    <Pressable 
                             style={styles.buttonUp}
                             onPress={ () => navigation.navigate('Dashboard')}
                     >
                         <Text style={styles.buttonText}> Dashboard </Text>
-                    </TouchableOpacity>
+                    </Pressable>
                 </Animatable.View>
                 <Animatable.View delay={750} animation="fadeInUp" style={styles.containerButton}>
-                    <TouchableOpacity 
+                    <Pressable 
                             style={styles.button}
                             onPress={ () => navigation.navigate('Detalhes')}
                     >
                         <Text style={styles.buttonText}> Detalhes do projeto </Text>
-                    </TouchableOpacity>
+                    </Pressable>
                 </Animatable.View>
             </Animatable.View>
         </View>
