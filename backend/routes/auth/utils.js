@@ -1,38 +1,38 @@
 const register = (email, name, cpf, password) => {
-    return {
-        text: `
+  return {
+    text: `
             INSERT INTO users (email, name, cpf, password)
             VALUES ($1, $2, $3, $4)
             RETURNING id, email, name, cpf
         `,
-        values: [email, name, cpf, password]
-    };
+    values: [email, name, cpf, password],
+  };
 };
 
 const checkUser = (email, cpf) => {
-    return {
-        text: `
+  return {
+    text: `
             SELECT *
             FROM users
             WHERE email = $1 OR cpf = $2
         `,
-        values: [email, cpf]
-    };
+    values: [email, cpf],
+  };
 };
 
 const login = (email) => {
-    return {
-        text: `
+  return {
+    text: `
             SELECT *
             FROM users
             WHERE email = $1
         `,
-        values: [email]
-    };
+    values: [email],
+  };
 };
 
 const edit = (id, email, name, cpf, password) => {
-    return `
+  return `
         UPDATE users
         SET email = '${email}', name = '${name}', password = '${password}', cpf = '${cpf}'
         WHERE id = ${id}
@@ -41,7 +41,7 @@ const edit = (id, email, name, cpf, password) => {
 };
 
 const getUser = (id) => {
-    return `
+  return `
         SELECT *
         FROM users
         WHERE id = ${id}
@@ -49,9 +49,9 @@ const getUser = (id) => {
 };
 
 module.exports = {
-    register,
-    checkUser,
-    login,
-    edit,
-    getUser
+  register,
+  checkUser,
+  login,
+  edit,
+  getUser,
 };
