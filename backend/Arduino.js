@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-const baseUrl = "http://localhost:2311/";
+const baseUrl = "https://client-5g3g.onrender.com/";
 const loginUrl = baseUrl + "auth/login";
 const readingsUrl = baseUrl + "readings";
 
