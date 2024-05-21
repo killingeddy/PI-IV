@@ -19,7 +19,7 @@ Para contribuir para o desenvolvimento do projeto, siga as instruções abaixo:
 ### Clonar o Repositório
 
 ```bash
-git clone https://github.com/GabrielTakarada/client.git
+git clone https://github.com/killingeddy/PI-IV.git
 ```
 
 ### Instalar Dependências
