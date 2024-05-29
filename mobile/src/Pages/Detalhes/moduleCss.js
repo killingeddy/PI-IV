@@ -1,0 +1,118 @@
+import { StyleSheet } from "react-native";
+
+const stylesDetails = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    flex: 1,
+    backgroundImage:
+      "linear-gradient(325deg, rgba(47,141,155,1) 0%, rgba(47,141,155,1) 17%, rgba(47,141,155,1) 37%, rgba(47,141,155,1) 49%, rgba(55,154,170,1) 62%, rgba(55,154,170,1) 74%, rgba(57,160,176,1) 88%, rgba(67,181,198,1) 100%)",
+  },
+  containerLogo: {
+    flex: 0.8,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "5%",
+  },
+  containerImg: {
+    flex: 1,
+  },
+  separator: {
+    borderBottomWidth: 1,
+    borderBottomColor: "black",
+    width: "76%",
+    margin: "auto",
+    marginBottom: 5,
+    marginTop: 10,
+  },
+  peca: {
+    flex: 0.6,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  proj: {
+    flex: 0.6,
+    backgroundColor: "#f5e1c8",
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
+    marginTop: 10,
+    shadowColor: "#333",
+    shadowOffset: {
+      width: 3.2,
+      height: -4.4,
+    },
+    shadowOpacity: 0.7,
+    shadowRadius: 4,
+    elevation: 5,
+    borderWidth: 1.2,
+    borderColor: "#333",
+  },
+  title: {
+    textAlign: "center",
+    fontSize: 24,
+    fontWeight: "900",
+    marginBottom: 20,
+  },
+  explicacao: {
+    textAlign: "center",
+    fontSize: 22,
+    fontWeight: "900",
+    marginTop: "5%",
+    marginBottom: 40,
+  },
+  textoExplicacao: {
+    fontWeight: "bold",
+    fontSize: "18px",
+    display: "flex",
+    flexDirection: "colum",
+    alignItems: "center",
+    textAlign: "center",
+    fontSize: 20,
+    flex: 0.45,
+    justifyContent: "center",
+    paddingVertical: "3%",
+    marginLeft: "5%",
+    marginRight: "5%",
+  },
+  text: {
+    color: "#a1a1a1",
+  },
+  comp: {
+    display: "flex",
+  },
+  first: {
+    textAlign: "start",
+    alignItems: "start",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    flex: 0.4,
+    fontSize: "40px",
+    fontWeight: "900",
+  },
+  second: {
+    textAlign: "start",
+    alignItems: "start",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    fontSize: "40px",
+    flex: 0.4,
+    fontWeight: "900",
+  },
+  paragrafos: {
+    width: "90vw",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+    marginBottom: "5%",
+    marginLeft: "5%",
+    fontWeight: "1000",
+  },
+});
+
+export default stylesDetails;
