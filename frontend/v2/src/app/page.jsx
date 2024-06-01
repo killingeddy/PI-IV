@@ -41,20 +41,31 @@ export default function Login() {
       setLoading(false);
       return toast.error("Preencha todos os campos");
     }
-    signIn("credentials", {
-      ...user,
-      redirect: false,
-    })
-      .then((callback) => {
-        if (callback.error) {
-          setLoading(false);
-          toast.error(callback.error);
-        } else {
-          setLoading(false);
-          router.push("/dashboard");
-        }
+  
+    try {
+      const callback = await signIn("credentials", {
+        ...user,
+        redirect: false,
       });
-  };
+  
+      if (callback.ok) {
+        router.push("/dashboard");
+      } else {
+        setLoading(false);
+        toast.error("Usuário ou senha inválidos");
+      }
+    } catch (error) {
+      setLoading(false);
+  
+      if (error.response && error.response.text) {
+        error.response.text().then((text) => {
+          toast.error("Erro inesperado no servidor");
+        });
+      } else {
+        toast.error("Erro inesperado");
+      }
+    }
+  };  
 
   useEffect(() => {
     if (status === "authenticated") {
