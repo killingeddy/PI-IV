@@ -9,28 +9,35 @@ export const authOptions = {
         password: { label: "password", type: "password" },
       },
       async authorize(credentials) {
-        const res = await fetch("https://client-5g3g.onrender.com/auth/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: credentials?.email,
-            password: credentials?.password,
-          }),
-        });
+        try {
+          const res = await fetch("https://pi-iv-yrw3.vercel.app/auth/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: credentials?.email,
+              password: credentials?.password,
+            }),
+          });
 
-        const data = await res.json();
+          const contentType = res.headers.get("content-type");
+          if (!contentType || !contentType.includes("application/json")) {
+            throw new Error("O servidor retornou uma resposta inesperada");
+          }
 
-        if (res.ok) {
-          const user = {
-            ...data,
-          };
+          const data = await res.json();
 
-          console.log('aaaaaaaaaaa', user);
-          return user;
-        } else {
-          throw new Error(data.error.message);
+          if (res.ok) {
+            const user = {
+              ...data,
+            };
+            return user;
+          } else {
+            throw new Error(data.error?.message || "Usuário ou senha inválidos");
+          }
+        } catch (error) {
+          throw new Error("Erro na autorização. Por favor, tente novamente.");
         }
       },
     }),
