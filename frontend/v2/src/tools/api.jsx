@@ -4,7 +4,7 @@ import axios from "axios";
 const useApi = () => {
     const api = useMemo(() => {
         return axios.create({
-            baseURL: "https://client-5g3g.onrender.com",
+            baseURL: "https://pi-iv-yrw3.vercel.app",
             headers: {
                 "Content-Type": "application/json",
             },
