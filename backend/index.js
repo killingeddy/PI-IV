@@ -11,16 +11,18 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 
+const CSS_URL =
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
+
 app.use(
   "/swagger",
   swaggerUi.serve,
-  swaggerUi.setup(require("./swagger.json"))
+  swaggerUi.setup(require("./swagger.json"), { customCss: CSS_URL })
 );
 
 app.use(router);
 
 app.set("trust proxy", true);
-
 
 app.listen(process.env.PORT, () => {
   console.log("_____Start_____");

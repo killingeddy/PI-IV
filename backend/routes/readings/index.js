@@ -18,8 +18,25 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const allLeituras = await pool.query(utils.getAllLeituras());
-    res.json(allLeituras.rows);
+    let { limit, offset, status } = req.query;
+
+    if (!limit || !offset)
+      return res.status(400).json({ error: "Bad Request" });
+
+    const allLeituras = await pool.query(
+      utils.getAllLeituras(limit, offset, status)
+    );
+
+    const count = await pool.query(utils.countLeituras(status));
+
+    res.json({
+      leituras: allLeituras.rows,
+      pagination: {
+        total: parseInt(count.rows[0].count),
+        limit: parseInt(limit),
+        offset: parseInt(offset),
+      },
+    });
   } catch (error) {
     console.log("Error:", error.message);
     res.status(500).json({ error: "Internal Server Error" });

@@ -10,11 +10,70 @@ const createLeitura = (temperatura, umidade, fogo, gas) => {
   };
 };
 
-const getAllLeituras = () => {
+const getAllLeituras = (limit, offset, status) => {
+  var statusQuery = "";
+  switch (status) {
+    case "all":
+      statusQuery = "";
+      break;
+    case "fire":
+      statusQuery = "WHERE fire > 0 ";
+      break;
+    case "gas":
+      statusQuery = "WHERE gas > 0";
+      break;
+    case "temperature":
+      statusQuery = "WHERE temperature > 0";
+      break;
+    case "moisture":
+      statusQuery = "WHERE moisture > 0";
+      break;
+    default:
+      statusQuery = "";
+      break;
+  }
+
   return {
     text: `
           SELECT *
           FROM readings
+          ${statusQuery}
+          ORDER BY created_at DESC
+          LIMIT $1
+          OFFSET $2
+      `,
+    values: [limit, offset],
+  };
+};
+
+const countLeituras = (status) => {
+  var statusQuery = "";
+  switch (status) {
+    case "all":
+      statusQuery = "";
+      break;
+    case "fire":
+      statusQuery = "WHERE fire > 0";
+      break;
+    case "gas":
+      statusQuery = "WHERE gas > 0";
+      break;
+    case "temperature":
+      statusQuery = "WHERE temperature > 0";
+      break;
+    case "moisture":
+      statusQuery = "WHERE moisture > 0";
+      break;
+    default:
+      statusQuery = "";
+      break;
+  }
+
+  return {
+    text: `
+          SELECT COUNT(*)
+          FROM readings
+          ${statusQuery}
       `,
   };
 };
@@ -50,12 +109,13 @@ const getLeituraById = (id) => {
     `,
     values: [id],
   };
-}
+};
 
 module.exports = {
   createLeitura,
   getAllLeituras,
   updateLeitura,
   deleteLeitura,
-  getLeituraById
+  getLeituraById,
+  countLeituras,
 };

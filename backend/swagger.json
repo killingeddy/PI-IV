@@ -11,7 +11,7 @@
   },
   "servers": [
     {
-      "url": "https://client-5g3g.onrender.com",
+      "url": "https://pi-iv-yrw3.vercel.app",
       "description": "Production server"
     },
     {
@@ -22,9 +22,9 @@
   "components": {
     "securitySchemes": {
       "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
+        "type": "apiKey",
+        "in": "header",
+        "name": "auth-token"
       }
     },
     "schemas": {
@@ -86,9 +86,7 @@
   "paths": {
     "/auth/login": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "summary": "Login user",
         "requestBody": {
           "required": true,
@@ -115,9 +113,7 @@
     },
     "/auth/register": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "summary": "Register user",
         "requestBody": {
           "required": true,
@@ -141,8 +137,33 @@
     },
     "/readings": {
       "get": {
-        "tags": [
-          "Readings"
+        "tags": ["Readings"],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "all"
+          }
         ],
         "summary": "Get all readings",
         "responses": {
@@ -170,9 +191,7 @@
         ]
       },
       "post": {
-        "tags": [
-          "Readings"
-        ],
+        "tags": ["Readings"],
         "summary": "Add a new reading",
         "requestBody": {
           "required": true,
@@ -201,9 +220,7 @@
     },
     "/readings/{id}": {
       "get": {
-        "tags": [
-          "Readings"
-        ],
+        "tags": ["Readings"],
         "summary": "Get reading by ID",
         "parameters": [
           {
@@ -240,9 +257,7 @@
         ]
       },
       "put": {
-        "tags": [
-          "Readings"
-        ],
+        "tags": ["Readings"],
         "summary": "Edit reading",
         "parameters": [
           {
@@ -285,9 +300,7 @@
         ]
       },
       "delete": {
-        "tags": [
-          "Readings"
-        ],
+        "tags": ["Readings"],
         "summary": "Delete reading",
         "parameters": [
           {
