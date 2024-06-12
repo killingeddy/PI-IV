@@ -1,4 +1,4 @@
-export default function BotaoLogin({ onClick }) {
+export default function BotaoLogin({ onClick, text }) {
   return (
     <div className="flex items-center justify-center">
       <button
@@ -9,7 +9,7 @@ export default function BotaoLogin({ onClick }) {
         }}
         type="submit"
       >
-        Login
+        {text}
       </button>
     </div>
   );

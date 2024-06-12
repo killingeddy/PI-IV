@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import Loader from "@/components/loader";
 import Input from "@/components/input";
 import { toast } from "react-toastify";
-import Image from "next/image";
 
 export default function Login() {
   const router = useRouter();
@@ -41,13 +40,13 @@ export default function Login() {
       setLoading(false);
       return toast.error("Preencha todos os campos");
     }
-  
+
     try {
       const callback = await signIn("credentials", {
         ...user,
         redirect: false,
       });
-  
+
       if (callback.ok) {
         router.push("/dashboard");
       } else {
@@ -56,7 +55,7 @@ export default function Login() {
       }
     } catch (error) {
       setLoading(false);
-  
+
       if (error.response && error.response.text) {
         error.response.text().then((text) => {
           toast.error("Erro inesperado no servidor");
@@ -65,7 +64,7 @@ export default function Login() {
         toast.error("Erro inesperado");
       }
     }
-  };  
+  };
 
   useEffect(() => {
     if (status === "authenticated") {
@@ -91,7 +90,7 @@ export default function Login() {
                   Login
                 </h2>
                 <div className="w-[100%] flex flex-col">
-                  <div className="flex justify-between items-center mb-4 md:mb-2 lg:mb-4 w-full h-14 md:h-[2.7rem] lg:h-14"> 
+                  <div className="flex justify-between items-center mb-4 md:mb-2 lg:mb-4 w-full h-14 md:h-[2.7rem] lg:h-14">
                     <Input
                       placeholder={"Usuário"}
                       value={user.email}
@@ -111,7 +110,18 @@ export default function Login() {
                       type={"text"}
                     />
                   </div>
-                  <BotaoLogin onClick={() => handleLogin()} />
+                  <BotaoLogin onClick={() => handleLogin()} text={'Entrar'} />
+                  <div className="flex justify-center items-center mt-4">
+                    <p className="text-sm text-[#000]">
+                      Não tem uma conta?{" "}
+                    </p>
+                    <button
+                      onClick={() => router.push("/register")}
+                      className="text-sm text-[#7678ee] font-bold ml-1"
+                    >
+                      Registre-se
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
