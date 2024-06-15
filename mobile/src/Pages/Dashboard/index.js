@@ -1,31 +1,42 @@
-import React from 'react';
-import { View, StyleSheet, Text} from 'react-native';
-// import * as Animatable from 'react-native-animatable'
-import { useNavigation } from '@react-navigation/native';
-
+import React from "react";
+import { View, Text, Pressable } from "react-native";
+import * as Animatable from "react-native-animatable";
+import { useNavigation } from "@react-navigation/native";
+import stylesDash from "./moduleCss";
+import { Image } from "react-native-animatable";
 
 export default function Dashboard() {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
 
-    return(
-        <View style={styles.container}>
-            <Text  onPress={ () => navigation.navigate('Inicio')}>VOLTAR </Text>
-            <Text  style={styles.text} onPress={ () => navigation.navigate('Detalhes')}>Dashboard</Text>
-        </View>
-    );
+  return (
+    <View style={stylesDash.container}>
+      <Image
+        source={require("../../Assets/voltar.png")}
+        onClick={() => navigation.navigate("Main")}
+        style={stylesDash.cardIconLeft}
+      />
+      <View style={stylesDash.containerLogo}>
+        <Animatable.Image
+          animation="flipInY"
+          style={stylesDash.containerImg}
+          source={require("../../Assets/Captura de tela 2024-06-15 045528.png")}
+          resizeMode="contain"
+        />
+      </View>
+      <Animatable.View
+        delay={750}
+        animation="fadeInUp"
+        style={stylesDash.containerForm}>
+        <Text style={stylesDash.title}>DASHBOARD</Text>
+        <Text>
+          Temos aqui varios graficos formando assim nosso Dashboard que compara
+          e apresente diversos valores, como o fogo que é medido em mega joules
+          por metro quadrado, temperatura em graus Celcius, gás em partes por
+          milhão, além de valores de humidade. Lembrando que todos estes valores
+          foram adquiridos baseado em parametros reais, para simular algo que
+          estaria realmente no dia a dia.
+        </Text>
+      </Animatable.View>
+    </View>
+  );
 }
-
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        backgroundColor: '#39A0B0'
-    },
-    text:{
-        flex:1,
-        textAlign:'center',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40
-    }
-    
-})

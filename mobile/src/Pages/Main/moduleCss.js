@@ -66,6 +66,31 @@ const stylesMain = StyleSheet.create({
     color: "#333",
     fontWeight: "bold",
   },
+  loadingContainer: {
+    margin: "auto",
+    height: "80%",
+    width: "80%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  containerImgLoad: {
+    position: "absolute",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  cardIconLeft: {
+    position: "absolute",
+    display: "flex",
+    marginLeft: "0",
+    left: "0",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "50px",
+    height: "50px",
+    zIndex: "999",
+  },
 });
 
 export default stylesMain;
