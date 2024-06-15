@@ -3,12 +3,18 @@ import { View, StyleSheet, Text, FlatList } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { useNavigation } from "@react-navigation/native";
 import stylesDetails from "./moduleCss";
+import { Image } from "react-native-animatable";
 
 export default function Detalhes() {
   const navigation = useNavigation();
 
   return (
     <View style={stylesDetails.container}>
+      <Image
+        source={require("../../Assets/voltar.png")}
+        onClick={() => navigation.navigate("Main")}
+        style={stylesDetails.cardIconLeft}
+      />
       <View style={stylesDetails.containerLogo}>
         <Animatable.Image
           animation="flipInY"

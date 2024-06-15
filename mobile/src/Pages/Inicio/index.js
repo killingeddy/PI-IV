@@ -23,7 +23,7 @@ export default function Inicio() {
         animation="fadeInUp"
         style={stylesInicio.containerForm}>
         <Text style={stylesInicio.title}>
-          Olá, seja muito bem vindo ao nosso App.
+          Olá,bem vindo muito ao nosso app Save Your Place.
         </Text>
         <Text style={stylesInicio.text}>Monitore seu projeto IOT.</Text>
         <Pressable
@@ -31,7 +31,6 @@ export default function Inicio() {
           onPress={() => navigation.navigate("SignIn")}>
           <Text style={stylesInicio.buttonText}> Entrar </Text>
         </Pressable>
-        <Text onPress={() => navigation.navigate("AboutUs")}>AboutUs</Text>
       </Animatable.View>
     </View>
   );

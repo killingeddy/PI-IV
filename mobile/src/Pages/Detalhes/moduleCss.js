@@ -35,7 +35,7 @@ const stylesDetails = StyleSheet.create({
   },
   proj: {
     flex: 0.6,
-    backgroundColor: "#f5e1c8",
+    backgroundColor: "#f8f8ff",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     marginTop: 10,
@@ -47,8 +47,8 @@ const stylesDetails = StyleSheet.create({
     shadowOpacity: 0.7,
     shadowRadius: 4,
     elevation: 5,
-    borderWidth: 1.2,
-    borderColor: "#333",
+    fontSize: "16px",
+    fontWeight: "900",
   },
   title: {
     textAlign: "center",
@@ -92,6 +92,8 @@ const stylesDetails = StyleSheet.create({
     flex: 0.4,
     fontSize: "40px",
     fontWeight: "900",
+    borderWidth: 1,
+    borderColor: "#333",
   },
   second: {
     textAlign: "start",
@@ -102,6 +104,8 @@ const stylesDetails = StyleSheet.create({
     fontSize: "40px",
     flex: 0.4,
     fontWeight: "900",
+    borderWidth: 1,
+    borderColor: "#333",
   },
   paragrafos: {
     width: "90vw",
@@ -109,9 +113,19 @@ const stylesDetails = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
-    marginBottom: "5%",
     marginLeft: "5%",
     fontWeight: "1000",
+  },
+  cardIconLeft: {
+    position: "absolute",
+    display: "flex",
+    marginLeft: "0",
+    left: "0",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "50px",
+    height: "50px",
+    zIndex: "999",
   },
 });
 
